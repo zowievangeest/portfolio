@@ -1,0 +1,47 @@
+language: node_js
+node_js:
+  - 11.10
+
+dist: xenial
+
+env:
+  global:
+    - CI=true
+    - NO_AT_BRIDGE=1
+    - SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
+    - SENTRY_ORG=zowie
+    - SENTRY_PROJECT=zowie-portfolio
+
+before_install:
+  - sudo apt-get install -y libgconf-2-4
+
+install:
+  - yarn install
+  - cypress install
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - ~/.cache
+
+before_script:
+  - yarn serve --silent &
+
+script:
+  - yarn run lint
+  - yarn run test:unit
+  - $(npm bin)/cypress run
+  - yarn run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  name: "Zowie van Geest"
+  email: zowie@zowievangeest.nl
+  fqdn: zowievangeest.nl
+  on:
+    branch: develop
+
