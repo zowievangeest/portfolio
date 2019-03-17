@@ -5,7 +5,7 @@
         <div class="column is-6 is-offset-3">
           <div class="logo">
             <img
-              src="../../../assets/images/logo/logo-zowie-van-geest.svg"
+              src="../../assets/images/logo/logo-zowie-van-geest.svg"
               alt="Logo - Zowie"
               class="is-center"
             />
@@ -47,8 +47,18 @@ export default {
     }
   },
   methods: {
+    danger() {
+      this.$toast.open({
+        duration: 5000,
+        message: `Email of wachtwoord onjuist`,
+        position: 'is-top-right',
+        type: 'is-danger'
+      })
+    },
     login() {
-      this.$store.dispatch('auth/login', this.user)
+      this.$store.dispatch('auth/login', this.user).catch(() => {
+        this.danger()
+      })
     }
   }
 }
@@ -78,7 +88,8 @@ export default {
     margin-bottom: 1rem;
     img {
       display: flex;
-      max-width: 300px;
+      max-width: 150px;
+      padding-bottom: 50px;
       margin: auto;
     }
   }

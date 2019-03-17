@@ -24,13 +24,14 @@ export const check = async ({commit}) => {
 export const login = ({commit}, payload) => {
   return new Promise((resolve, reject) => {
     Vue.$http
-      .post('/auth/login', payload)
+      .post('/auth', payload)
       .then(res => {
         commit(types.LOGIN, res)
         Vue.router.push({name: 'dashboard'})
         resolve(res.success)
       })
       .catch(err => {
+        console.log(err.response)
         reject(err)
       })
   })
@@ -42,10 +43,8 @@ export const login = ({commit}, payload) => {
  * @returns {Promise<any>}
  */
 export const logout = ({commit}) => {
-  return Vue.$http.post('/auth/logout').then(() => {
-    commit(types.LOGOUT)
-    Vue.router.push({name: 'login'})
-  })
+  commit(types.LOGOUT)
+  Vue.router.push({name: 'login'})
 }
 
 /**
