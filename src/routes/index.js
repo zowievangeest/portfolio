@@ -9,8 +9,18 @@ const Dashboard = () =>
   import('../views/admin/Dashboard').then(m => m.default || m)
 const Overview = () =>
   import('../views/admin/Overview').then(m => m.default || m)
-const Posts = () => import('../views/admin/Posts').then(m => m.default || m)
 const Profiel = () => import('../views/admin/Profiel').then(m => m.default || m)
+
+// Posts
+const Posts = () => import('../views/admin/Posts').then(m => m.default || m)
+const PostsCreate = () =>
+  import('../views/admin/PostsCreate').then(m => m.default || m)
+const PostsAll = () =>
+  import('../views/admin/PostsAll').then(m => m.default || m)
+const PostsSingle = () =>
+  import('../views/admin/PostsSingle').then(m => m.default || m)
+const PostsEdit = () =>
+  import('../views/admin/PostsEdit').then(m => m.default || m)
 
 export default [
   {
@@ -37,7 +47,30 @@ export default [
       {
         path: 'posts',
         name: 'posts',
-        component: Posts
+        component: Posts,
+        redirect: '/admin/dashboard/posts/all',
+        children: [
+          {
+            path: 'create',
+            name: 'create',
+            component: PostsCreate
+          },
+          {
+            path: 'all',
+            name: 'all',
+            component: PostsAll
+          },
+          {
+            path: 'single/:id',
+            name: 'single',
+            component: PostsSingle
+          },
+          {
+            path: 'edit/:id',
+            name: 'edit',
+            component: PostsEdit
+          }
+        ]
       },
       {
         path: 'profiel',

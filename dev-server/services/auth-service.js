@@ -5,11 +5,23 @@
 
 import jwt from 'jsonwebtoken'
 
+/**
+ * Generates a JWT token which is signed with email, password and TOKEN_SECRET
+ * @param user
+ * @returns {*}
+ */
 export function generateJWT(user) {
   const tokenData = {email: user.email, id: user._id}
   return jwt.sign({user: tokenData}, process.env.TOKEN_SECRET)
 }
 
+/**
+ * Function for requiring login before a call is made
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*|Promise<any>}
+ */
 export function requireLogin(req, res, next) {
   const token = decodeToken(req)
   if (!token) {
@@ -21,7 +33,8 @@ export function requireLogin(req, res, next) {
 /**
  * Will verify that the token came from this application (using secret). Then,
  * will decode it and grab the signed data (email, etc.) and return decoded token
- * @param {HTTP Request} req
+ * @param req
+ * @returns {*}
  */
 export function decodeToken(req) {
   const token = req.headers.authorization || req.headers['authorization']
@@ -37,6 +50,11 @@ export function decodeToken(req) {
   }
 }
 
+/**
+ * GetEmail from token
+ * @param req
+ * @returns {*}
+ */
 export function getEmail(req) {
   const token = decodeToken(req)
   if (!token) {
@@ -45,6 +63,11 @@ export function getEmail(req) {
   return token.user.email
 }
 
+/**
+ * getUserId from token
+ * @param req
+ * @returns {*}
+ */
 export function getUserId(req) {
   const token = decodeToken(req)
   if (!token) {

@@ -31,6 +31,7 @@ import PanelBlock from '../../components/dashboard/panelBlock/panelBlock.vue'
 
 export default {
   name: 'Profiel',
+  middleware: 'auth',
   components: {
     PanelBlock
   },

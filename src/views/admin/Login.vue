@@ -50,8 +50,8 @@ export default {
     danger() {
       this.$toast.open({
         duration: 5000,
-        message: `Email of wachtwoord onjuist`,
-        position: 'is-top-right',
+        message: 'Email of wachtwoord onjuist',
+        position: 'is-bottom-right',
         type: 'is-danger'
       })
     },

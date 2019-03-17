@@ -2,14 +2,18 @@ import {StringUtil} from '../../utilities/string-util'
 import User from '../../model/user-model'
 import {generateJWT, getUserId} from '../../services/auth-service'
 
+/**
+ * Authentication request
+ * @param req
+ * @param res
+ * @returns {*|Promise<any>}
+ */
 export function index(req, res) {
-  // First verify that the user provided a email and a password
   const validation = validateIndex(req.body)
   if (!validation.isValid) {
     return res.status(400).json({message: validation.message})
   }
 
-  // Find the user in the database
   User.findOne({email: req.body.email.toLowerCase()}, (error, user) => {
     if (error) {
       return res.status(500).json()
@@ -37,26 +41,32 @@ export function index(req, res) {
 }
 
 /**
- *
+ * Authentication find current user
  * @param req
  * @param res
+ * @returns {*|Promise<any>}
  */
 export function currentUser(req, res) {
   const id = getUserId(req)
-  User.findOne({_id: id}, (error, user) => {
-    if (error && !user) {
-      return res.status(500).json()
-    }
-    const {_id, first, last, email, createdAt, updatedAt} = user
-    return res
-      .status(200)
-      .json({data: {_id, first, last, email, createdAt, updatedAt}})
-  })
+  if (id) {
+    User.findOne({_id: id}, (error, user) => {
+      if ((error && !user) || user === null) {
+        return res.status(500).json({message: 'Gebruiker niet gevonden'})
+      }
+      const {_id, first, last, email, createdAt, updatedAt} = user
+      return res
+        .status(200)
+        .json({data: {_id, first, last, email, createdAt, updatedAt}})
+    })
+  } else {
+    return res.status(500).json({message: 'ID niet gevonden'})
+  }
 }
 
 /**
- * Validates the index request method
- * @param {HTTP Request Body} body
+ * Authentication validation on email and password
+ * @param body
+ * @returns {{isValid: *, message: string}}
  */
 function validateIndex(body) {
   let errors = ''

@@ -1,6 +1,5 @@
-/* ============
+/*
  * Auth State
- * ============
  *
  * The state of the authentication module.
  */

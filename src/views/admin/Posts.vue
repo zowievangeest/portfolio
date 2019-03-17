@@ -1,7 +1,29 @@
 <template>
-  <div>
-    <h1>Blog Posts</h1>
-  </div>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <h1 class="title">
+              Blog Posts
+            </h1>
+            <h2 class="subtitle">
+              Mijn blogs
+            </h2>
+          </div>
+          <div class="column">
+            <router-link
+              :to="{name: 'create'}"
+              class="button is-primary is-pulled-right is-vertical"
+              exact
+              >Nieuwe blog post</router-link
+            >
+          </div>
+        </div>
+        <router-view />
+      </div>
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped></style>

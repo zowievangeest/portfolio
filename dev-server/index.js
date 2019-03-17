@@ -8,8 +8,10 @@ setEnvironment(app)
 connectToDB()
 registerRoutes(app)
 
-// All non-API requests made to the server
-// will hit this request, which just returns the main layout, html file
+/**
+ * All non-API requests made to the server
+ * will hit this request, which just returns the main layout, html file
+ */
 app.get('*', (req, res) => {
   if (
     !process.env.NODE_ENV ||
@@ -22,7 +24,9 @@ app.get('*', (req, res) => {
   }
 })
 
-// Starts the server on the given port
+/**
+ * Starts the server on the given port 3000
+ */
 app.listen(3000, () => {
   console.log(
     'Zowie - Portfolio draait op port 3000 in ' +

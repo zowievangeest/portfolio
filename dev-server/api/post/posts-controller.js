@@ -1,30 +1,38 @@
 import User from '../../model/user-model'
-import Task from '../../model/task-model'
-import moment from 'moment'
+import Post from '../../model/post-model'
 import * as auth from '../../services/auth-service'
 
+/**
+ * Posts request
+ * @param req
+ * @param res
+ */
 export function index(req, res) {
-  // FIND ALL TASKS
-  Task.find({}, (error, tasks) => {
+  Post.find({}, (error, posts) => {
     if (error) {
       return res.status(500).json()
     }
-    return res.status(200).json({tasks: tasks})
+    return res.status(200).json({posts: posts})
   }).populate('author', 'email', 'user')
-  // Populate will find the author that created the task and add it to the task (email only)
 }
 
+/**
+ * Create new post
+ * @param req
+ * @param res
+ */
 export function create(req, res) {
   const id = auth.getUserId(req)
   User.findOne({_id: id}, (error, user) => {
     if (error && !user) {
       return res.status(500).json()
     }
-    const task = new Task(req.body.task)
-    task.author = user._id
-    task.dueDate = moment(task.dueDate)
+    const post = new Post(req.body.post)
+    post.author = user._id
+    console.log(req.body)
+    console.log(post)
 
-    task.save(error => {
+    post.save(error => {
       if (error) {
         return res.status(500).json()
       }
@@ -33,6 +41,11 @@ export function create(req, res) {
   })
 }
 
+/**
+ * Update post
+ * @param req
+ * @param res
+ */
 export function update(req, res) {
   const id = auth.getUserId(req)
 
@@ -44,10 +57,9 @@ export function update(req, res) {
       return res.status(404).json()
     }
 
-    const task = new Task(req.body.task)
-    task.author = user._id
-    task.dueDate = moment(task.dueDate) // Formats the due date to a proper date format
-    Task.findByIdAndUpdate({_id: task._id}, task, error => {
+    const post = new Post(req.body.post)
+    post.author = user._id
+    Post.findByIdAndUpdate({_id: post._id}, post, error => {
       if (error) {
         return res.status(500).json()
       }
@@ -56,21 +68,20 @@ export function update(req, res) {
   })
 }
 
+/**
+ * Remove post on id
+ * @param req
+ * @param res
+ */
 export function remove(req, res) {
-  const id = auth.getUserId(req)
-  Task.findOne({_id: req.params.id}, (error, task) => {
+  Post.findOne({_id: req.params.id}, (error, post) => {
     if (error) {
       return res.status(500).json()
     }
-    if (!task) {
+    if (!post) {
       return res.status(404).json()
     }
-    if (task.author._id.toString() !== id) {
-      return res
-        .status(403)
-        .json({message: "Not allowed to delete another user's task"})
-    }
-    Task.deleteOne({_id: req.params.id}, error => {
+    Post.deleteOne({_id: req.params.id}, error => {
       if (error) {
         return res.status(500).json()
       }
@@ -79,15 +90,19 @@ export function remove(req, res) {
   })
 }
 
+/**
+ * Show post based on id
+ * @param req
+ * @param res
+ */
 export function show(req, res) {
-  // GET TASK BY ID
-  Task.findOne({_id: req.params.id}, (error, task) => {
+  Post.findOne({_id: req.params.id}, (error, post) => {
     if (error) {
       return res.status(500).json()
     }
-    if (!task) {
+    if (!post) {
       return res.status(404).json()
     }
-    return res.status(200).json({task: task})
-  })
+    return res.status(200).json({post: post})
+  }).populate('author', {email: 'email', first: 'first', last: 'last'}, 'user')
 }
