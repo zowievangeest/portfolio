@@ -5,40 +5,54 @@
       <div class="columns">
         <div class="column">
           <b-table
-            :data="getAllExperiences"
+            :data="getAllEducations"
             ref="table"
             :opened-detailed="defaultOpenedDetails"
             detailed
             detail-key="_id"
             @details-open="
-              (row, index) => $toast.open(`Expanded ${row.organization}`)
+              (row, index) => $toast.open(`Expanded ${row.institution}`)
             "
           >
             <template slot-scope="props">
               <b-table-column
-                field="organization"
-                label="Bedrijf"
+                field="institution"
+                label="Onderwijsinstelling"
                 width="175"
                 sortable
               >
                 <template>
                   <a @click="toggle(props.row)">
-                    {{ props.row.organization }}
+                    {{ props.row.institution }}
                   </a>
                 </template>
               </b-table-column>
 
-              <b-table-column field="role" label="Functie" sortable>
-                {{ props.row.role }}
+              <b-table-column
+                field="specialization"
+                label="Studierichting"
+                sortable
+              >
+                {{ props.row.specialization }}
               </b-table-column>
 
-              <b-table-column field="startDate" label="Van" sortable centered>
+              <b-table-column
+                field="startDate"
+                label="Beginjaar"
+                sortable
+                centered
+              >
                 <span class="button is-success is-small">
-                  {{ $moment(props.row.startDate).format('MM-YYYY') }}
+                  {{ $moment(props.row.startDate).format('YYYY') }}
                 </span>
               </b-table-column>
 
-              <b-table-column field="endDate" label="Tot" sortable centered>
+              <b-table-column
+                field="endDate"
+                label="Eindjaar"
+                sortable
+                centered
+              >
                 <span
                   v-if="props.row.current"
                   class="button is-success is-small"
@@ -46,7 +60,7 @@
                   Huidig
                 </span>
                 <span v-else class="button is-danger is-small">
-                  {{ $moment(props.row.endDate).format('MM-YYYY') }}
+                  {{ $moment(props.row.endDate).format('YYYY') }}
                 </span>
               </b-table-column>
 
@@ -55,7 +69,7 @@
                   type="button"
                   tag="button"
                   class="button is-success is-small margin-left-10"
-                  :to="{name: 'experiences/edit', params: {id: props.row._id}}"
+                  :to="{name: 'educations/edit', params: {id: props.row._id}}"
                   exact
                   ><b-icon
                     icon="square-edit-outline"
@@ -80,19 +94,9 @@
               <article class="media">
                 <div class="media-content">
                   <div class="content">
-                    <div v-if="props.row.shortDescription">
-                      <strong>Korte beschrijving:</strong><br />
-                      {{ props.row.shortDescription }}
-                    </div>
                     <div v-if="props.row.description">
                       <strong>Beschrijving:</strong><br />
                       {{ props.row.description }}
-                    </div>
-                    <div v-if="props.row.url">
-                      <strong>Website:</strong><br />
-                      <a :href="props.row.url" target="_blank">{{
-                        props.row.url
-                      }}</a>
                     </div>
                   </div>
                 </div>
@@ -115,7 +119,7 @@
 import {mapGetters} from 'vuex'
 
 export default {
-  name: 'ExperiencesAll',
+  name: 'EducationsAll',
   middleware: 'auth',
   data() {
     return {
@@ -126,15 +130,15 @@ export default {
   async mounted() {
     const vm = this
     await vm.$store.watch(() => {
-      vm.$store.dispatch('experiences/fetchAllExperiences')
+      vm.$store.dispatch('educations/fetchAllEducations')
     })
   },
   computed: {
     ...mapGetters({
-      experiences: 'experiences/experiences'
+      educations: 'educations/educations'
     }),
-    getAllExperiences() {
-      return this.experiences ? this.experiences : ''
+    getAllEducations() {
+      return this.educations ? this.educations : ''
     }
   },
   methods: {
@@ -145,10 +149,10 @@ export default {
       this.$dialog.confirm({
         message: 'Weet je zeker dat je het wilt verwijderen?',
         onConfirm: () => {
-          this.$store.dispatch('experiences/deleteExperience', id)
+          this.$store.dispatch('educations/deleteEducation', id)
           this.$toast.open({
             duration: 5000,
-            message: 'Ervaring verwijderd',
+            message: 'Opleiding verwijderd',
             position: 'is-bottom-right',
             type: 'is-danger'
           })

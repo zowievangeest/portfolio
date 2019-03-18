@@ -41,6 +41,9 @@
           <router-link :to="{name: 'experiences'}" class="navbar-item" exact>
             Ervaringen
           </router-link>
+          <router-link :to="{name: 'educations'}" class="navbar-item" exact>
+            Opleidingen
+          </router-link>
         </div>
 
         <div class="navbar-end">

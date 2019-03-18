@@ -35,6 +35,16 @@ const ExperiencesAll = () =>
 const ExperiencesEdit = () =>
   import('../views/admin/experiences/ExperiencesEdit').then(m => m.default || m)
 
+// Educations
+const Educations = () =>
+  import('../views/admin/educations/Educations').then(m => m.default || m)
+const EducationsCreate = () =>
+  import('../views/admin/educations/EducationsCreate').then(m => m.default || m)
+const EducationsAll = () =>
+  import('../views/admin/educations/EducationsAll').then(m => m.default || m)
+const EducationsEdit = () =>
+  import('../views/admin/educations/EducationsEdit').then(m => m.default || m)
+
 export default [
   {
     path: '/',
@@ -105,6 +115,29 @@ export default [
             path: 'edit/:id',
             name: 'experiences/edit',
             component: ExperiencesEdit
+          }
+        ]
+      },
+      {
+        path: 'educations',
+        name: 'educations',
+        component: Educations,
+        redirect: '/admin/dashboard/educations/all',
+        children: [
+          {
+            path: 'all',
+            name: 'educations/all',
+            component: EducationsAll
+          },
+          {
+            path: 'create',
+            name: 'educations/create',
+            component: EducationsCreate
+          },
+          {
+            path: 'edit/:id',
+            name: 'educations/edit',
+            component: EducationsEdit
           }
         ]
       },

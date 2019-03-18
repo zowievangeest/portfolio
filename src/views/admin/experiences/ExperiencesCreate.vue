@@ -61,7 +61,7 @@
       </div>
       <div class="column" v-show="!experience.current">
         <div class="field">
-          <label class="label">Tot</label>
+          <label class="label">Tot<sup class="has-text-danger"> *</sup></label>
           <div class="control">
             <b-datepicker
               v-validate="'required'"
@@ -208,7 +208,6 @@ export default {
     createExperience() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          console.log(this.experience)
           this.$store
             .dispatch('experiences/create', {experience: this.experience})
             .then(() => {

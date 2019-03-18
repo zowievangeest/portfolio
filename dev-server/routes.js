@@ -3,6 +3,7 @@ import regRoutes from './api/register/register-routes'
 import userRoutes from './api/user/user-routes'
 import authRoutes from './api/auth/auth-routes'
 import experienceRoutes from './api/experience/experiences-routes'
+import educationRoutes from './api/education/educations-routes'
 
 /**
  * Registering all routes used by the API
@@ -14,4 +15,5 @@ export function registerRoutes(app) {
   app.use('/api', userRoutes)
   app.use('/api', authRoutes)
   app.use('/api', experienceRoutes)
+  app.use('/api', educationRoutes)
 }

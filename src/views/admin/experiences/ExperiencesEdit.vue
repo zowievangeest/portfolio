@@ -153,7 +153,9 @@
     </div>
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-success" @click="updatePost">Updaten</button>
+        <button class="button is-success" @click="updateExperience">
+          Updaten
+        </button>
       </div>
       <div class="control">
         <button class="button is-danger" @click="$router.go(-1)">
@@ -228,7 +230,7 @@ export default {
         type: 'is-danger'
       })
     },
-    updatePost() {
+    updateExperience() {
       this.$validator.validateAll().then(result => {
         if (result) {
           this.$store
