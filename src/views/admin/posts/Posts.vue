@@ -13,7 +13,7 @@
           </div>
           <div class="column">
             <router-link
-              :to="{name: 'create'}"
+              :to="{name: 'posts/create'}"
               class="button is-primary is-pulled-right is-vertical"
               exact
               >Nieuwe blog post</router-link

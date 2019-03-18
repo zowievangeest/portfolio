@@ -12,15 +12,28 @@ const Overview = () =>
 const Profiel = () => import('../views/admin/Profiel').then(m => m.default || m)
 
 // Posts
-const Posts = () => import('../views/admin/Posts').then(m => m.default || m)
+const Posts = () =>
+  import('../views/admin/posts/Posts').then(m => m.default || m)
 const PostsCreate = () =>
-  import('../views/admin/PostsCreate').then(m => m.default || m)
+  import('../views/admin/posts/PostsCreate').then(m => m.default || m)
 const PostsAll = () =>
-  import('../views/admin/PostsAll').then(m => m.default || m)
+  import('../views/admin/posts/PostsAll').then(m => m.default || m)
 const PostsSingle = () =>
-  import('../views/admin/PostsSingle').then(m => m.default || m)
+  import('../views/admin/posts/PostsSingle').then(m => m.default || m)
 const PostsEdit = () =>
-  import('../views/admin/PostsEdit').then(m => m.default || m)
+  import('../views/admin/posts/PostsEdit').then(m => m.default || m)
+
+// Experiences
+const Experiences = () =>
+  import('../views/admin/experiences/Experiences').then(m => m.default || m)
+const ExperiencesCreate = () =>
+  import('../views/admin/experiences/ExperiencesCreate').then(
+    m => m.default || m
+  )
+const ExperiencesAll = () =>
+  import('../views/admin/experiences/ExperiencesAll').then(m => m.default || m)
+const ExperiencesEdit = () =>
+  import('../views/admin/experiences/ExperiencesEdit').then(m => m.default || m)
 
 export default [
   {
@@ -51,24 +64,47 @@ export default [
         redirect: '/admin/dashboard/posts/all',
         children: [
           {
-            path: 'create',
-            name: 'create',
-            component: PostsCreate
-          },
-          {
             path: 'all',
-            name: 'all',
+            name: 'posts/all',
             component: PostsAll
           },
           {
+            path: 'create',
+            name: 'posts/create',
+            component: PostsCreate
+          },
+          {
             path: 'single/:id',
-            name: 'single',
+            name: 'posts/single',
             component: PostsSingle
           },
           {
             path: 'edit/:id',
-            name: 'edit',
+            name: 'posts/edit',
             component: PostsEdit
+          }
+        ]
+      },
+      {
+        path: 'experiences',
+        name: 'experiences',
+        component: Experiences,
+        redirect: '/admin/dashboard/experiences/all',
+        children: [
+          {
+            path: 'all',
+            name: 'experiences/all',
+            component: ExperiencesAll
+          },
+          {
+            path: 'create',
+            name: 'experiences/create',
+            component: ExperiencesCreate
+          },
+          {
+            path: 'edit/:id',
+            name: 'experiences/edit',
+            component: ExperiencesEdit
           }
         ]
       },

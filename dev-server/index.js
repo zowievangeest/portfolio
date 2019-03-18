@@ -1,5 +1,6 @@
 import express from 'express'
 const app = express()
+const displayRoutes = require('express-routemap')
 import {registerRoutes} from './routes'
 import {setEnvironment} from './config/env'
 import {connectToDB} from './config/db'
@@ -33,4 +34,5 @@ app.listen(3000, () => {
       process.env.NODE_ENV +
       ' modus!'
   )
+  displayRoutes(app)
 })

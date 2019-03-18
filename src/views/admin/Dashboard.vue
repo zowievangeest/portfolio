@@ -35,9 +35,11 @@
           <router-link :to="{name: 'overview'}" class="navbar-item" exact>
             Dashboard
           </router-link>
-
           <router-link :to="{name: 'posts'}" class="navbar-item" exact>
             Blog Posts
+          </router-link>
+          <router-link :to="{name: 'experiences'}" class="navbar-item" exact>
+            Ervaringen
           </router-link>
         </div>
 

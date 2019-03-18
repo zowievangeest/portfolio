@@ -29,7 +29,7 @@
               type="button"
               tag="button"
               class="button is-primary"
-              :to="{name: 'single', params: {id: post._id}}"
+              :to="{name: 'posts/single', params: {id: post._id}}"
               exact
               ><b-icon
                 icon="eye-outline"
@@ -41,7 +41,7 @@
               type="button"
               tag="button"
               class="button is-success margin-left-10"
-              :to="{name: 'edit', params: {id: post._id}}"
+              :to="{name: 'posts/edit', params: {id: post._id}}"
               exact
               ><b-icon
                 icon="square-edit-outline"
@@ -87,10 +87,10 @@ export default {
   },
   computed: {
     ...mapGetters({
-      posts: 'posts/posts'
+      experiences: 'posts/posts'
     }),
     getAllPosts() {
-      return this.posts ? this.posts : ''
+      return this.experiences ? this.experiences : ''
     }
   },
   methods: {

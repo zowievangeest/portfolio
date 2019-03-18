@@ -1,0 +1,18 @@
+/*
+ * Experiences Mutations Types
+ * The mutations types available for the experiences module.
+ */
+
+export const CREATE_EXPERIENCE = 'CREATE_EXPERIENCE'
+export const DELETE_EXPERIENCE = 'DELETE_EXPERIENCE'
+export const UPDATE_EXPERIENCE = 'UPDATE_EXPERIENCE'
+export const FETCH_EXPERIENCES_SUCCESS = 'FETCH_EXPERIENCES_SUCCESS'
+export const FETCH_EXPERIENCE_ID = 'FETCH_EXPERIENCE_ID'
+
+export default {
+  CREATE_EXPERIENCE,
+  DELETE_EXPERIENCE,
+  UPDATE_EXPERIENCE,
+  FETCH_EXPERIENCES_SUCCESS,
+  FETCH_EXPERIENCE_ID
+}

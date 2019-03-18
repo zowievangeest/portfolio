@@ -1,23 +1,23 @@
 import User from '../../model/user-model'
-import Post from '../../model/post-model'
+import Experience from '../../model/experience-model'
 import * as auth from '../../services/auth-service'
 
 /**
- * Posts request
+ * Experiences request
  * @param req
  * @param res
  */
 export function index(req, res) {
-  Post.find({}, (error, posts) => {
+  Experience.find({}, (error, experiences) => {
     if (error) {
       return res.status(500).json()
     }
-    return res.status(200).json({posts: posts})
+    return res.status(200).json({experiences: experiences})
   }).populate('author', 'email', 'user')
 }
 
 /**
- * Create new post
+ * Create new experience
  * @param req
  * @param res
  */
@@ -27,10 +27,10 @@ export function create(req, res) {
     if (error && !user) {
       return res.status(500).json()
     }
-    const post = new Post(req.body.post)
-    post.author = user._id
+    const experience = new Experience(req.body.experience)
+    experience.author = user._id
 
-    post.save(error => {
+    experience.save(error => {
       if (error) {
         return res.status(500).json()
       }
@@ -40,7 +40,7 @@ export function create(req, res) {
 }
 
 /**
- * Update post
+ * Update experience
  * @param req
  * @param res
  */
@@ -55,9 +55,9 @@ export function update(req, res) {
       return res.status(404).json()
     }
 
-    const post = new Post(req.body.post)
-    post.author = user._id
-    Post.findByIdAndUpdate({_id: post._id}, post, error => {
+    const experience = new Experience(req.body.experience)
+    experience.author = user._id
+    Experience.findByIdAndUpdate({_id: experience._id}, experience, error => {
       if (error) {
         return res.status(500).json()
       }
@@ -67,19 +67,19 @@ export function update(req, res) {
 }
 
 /**
- * Remove post on id
+ * Remove experience on id
  * @param req
  * @param res
  */
 export function remove(req, res) {
-  Post.findOne({_id: req.params.id}, (error, post) => {
+  Experience.findOne({_id: req.params.id}, (error, experience) => {
     if (error) {
       return res.status(500).json()
     }
-    if (!post) {
+    if (!experience) {
       return res.status(404).json()
     }
-    Post.deleteOne({_id: req.params.id}, error => {
+    Experience.deleteOne({_id: req.params.id}, error => {
       if (error) {
         return res.status(500).json()
       }
@@ -89,18 +89,18 @@ export function remove(req, res) {
 }
 
 /**
- * Show post based on id
+ * Show experience based on id
  * @param req
  * @param res
  */
 export function show(req, res) {
-  Post.findOne({_id: req.params.id}, (error, post) => {
+  Experience.findOne({_id: req.params.id}, (error, experience) => {
     if (error) {
       return res.status(500).json()
     }
-    if (!post) {
+    if (!experience) {
       return res.status(404).json()
     }
-    return res.status(200).json({post: post})
+    return res.status(200).json({experience: experience})
   }).populate('author', {email: 'email', first: 'first', last: 'last'}, 'user')
 }

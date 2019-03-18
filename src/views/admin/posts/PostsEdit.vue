@@ -115,7 +115,7 @@ export default {
             .then(() => {
               this.success()
               this.$store.dispatch('posts/fetchAllPosts').then(() => {
-                this.$router.push({name: 'all'})
+                this.$router.push({name: 'posts/all'})
               })
             })
             .catch(() => {

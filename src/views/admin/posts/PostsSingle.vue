@@ -16,7 +16,7 @@
       </span>
       <hr />
       <img :src="post.imgUrl" />
-      <p>
+      <p style="white-space: pre-line">
         {{ post.body }}
       </p>
     </div>

@@ -2,7 +2,7 @@
   <div>
     <hr />
     <div class="field">
-      <label class="label">Titel</label>
+      <label class="label">Titel<sup class="has-text-danger"> *</sup></label>
       <div class="control">
         <input
           v-validate="'required'"
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Tekst</label>
+      <label class="label">Tekst<sup class="has-text-danger"> *</sup></label>
       <div class="control">
         <textarea
           name="tekst"
@@ -29,7 +29,9 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Afbeelding Url</label>
+      <label class="label"
+        >Afbeelding Url<sup class="has-text-danger"> *</sup></label
+      >
       <div class="control">
         <input
           class="input"
@@ -105,7 +107,7 @@ export default {
             .then(() => {
               this.success()
               this.$store.dispatch('posts/fetchAllPosts').then(() => {
-                this.$router.push({name: 'all'})
+                this.$router.push({name: 'posts/all'})
               })
             })
             .catch(() => {
