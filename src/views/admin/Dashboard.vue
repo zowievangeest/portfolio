@@ -44,6 +44,9 @@
           <router-link :to="{name: 'educations'}" class="navbar-item" exact>
             Opleidingen
           </router-link>
+          <router-link :to="{name: 'certificates'}" class="navbar-item" exact>
+            Certificaten
+          </router-link>
         </div>
 
         <div class="navbar-end">

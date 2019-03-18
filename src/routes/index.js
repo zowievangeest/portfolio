@@ -45,6 +45,22 @@ const EducationsAll = () =>
 const EducationsEdit = () =>
   import('../views/admin/educations/EducationsEdit').then(m => m.default || m)
 
+// Certificates
+const Certificates = () =>
+  import('../views/admin/certificates/Certificates').then(m => m.default || m)
+const CertificatesCreate = () =>
+  import('../views/admin/certificates/CertificatesCreate').then(
+    m => m.default || m
+  )
+const CertificatesAll = () =>
+  import('../views/admin/certificates/CertificatesAll').then(
+    m => m.default || m
+  )
+const CertificatesEdit = () =>
+  import('../views/admin/certificates/CertificatesEdit').then(
+    m => m.default || m
+  )
+
 export default [
   {
     path: '/',
@@ -138,6 +154,29 @@ export default [
             path: 'edit/:id',
             name: 'educations/edit',
             component: EducationsEdit
+          }
+        ]
+      },
+      {
+        path: 'certificates',
+        name: 'certificates',
+        component: Certificates,
+        redirect: '/admin/dashboard/certificates/all',
+        children: [
+          {
+            path: 'all',
+            name: 'certificates/all',
+            component: CertificatesAll
+          },
+          {
+            path: 'create',
+            name: 'certificates/create',
+            component: CertificatesCreate
+          },
+          {
+            path: 'edit/:id',
+            name: 'certificates/edit',
+            component: CertificatesEdit
           }
         ]
       },
