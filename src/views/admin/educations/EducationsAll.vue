@@ -15,6 +15,9 @@
             "
           >
             <template slot-scope="props">
+              <b-table-column field="show" width="20">
+                <Published :condition="props.row.show" />
+              </b-table-column>
               <b-table-column
                 field="institution"
                 label="Onderwijsinstelling"
@@ -117,10 +120,14 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import Published from '../../../components/dashboard/published/Published'
 
 export default {
   name: 'EducationsAll',
   middleware: 'auth',
+  components: {
+    Published
+  },
   data() {
     return {
       defaultOpenedDetails: [1],

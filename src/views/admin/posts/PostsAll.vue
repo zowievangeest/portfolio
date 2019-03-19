@@ -3,7 +3,10 @@
     <hr />
     <div class="box content">
       <article v-for="post in getAllPosts" :key="post._id">
-        <h4>{{ post.title }}</h4>
+        <h4>
+          {{ post.title
+          }}<Published :condition="post.show" style="margin-left: 15px" />
+        </h4>
         <div class="media">
           <div class="media-left">
             <p class="image is-64x64">
@@ -75,10 +78,14 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import Published from '../../../components/dashboard/published/Published.vue'
 
 export default {
   name: 'PostsAll',
   middleware: 'auth',
+  components: {
+    Published
+  },
   async mounted() {
     const vm = this
     await vm.$store.watch(() => {

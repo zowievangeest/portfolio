@@ -6,6 +6,9 @@
         <div class="column">
           <b-table :data="getAllCertificates" ref="table">
             <template slot-scope="props">
+              <b-table-column field="show" width="20">
+                <Published :condition="props.row.show" />
+              </b-table-column>
               <b-table-column
                 field="authority"
                 label="Autoriteit"
@@ -100,10 +103,14 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import Published from '../../../components/dashboard/published/Published'
 
 export default {
   name: 'CertificatesAll',
   middleware: 'auth',
+  components: {
+    Published
+  },
   async mounted() {
     const vm = this
     await vm.$store.watch(() => {
