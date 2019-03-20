@@ -30,6 +30,7 @@
 
 <script>
 export default {
-  name: 'Educations'
+  name: 'Educations',
+  middleware: 'auth'
 }
 </script>

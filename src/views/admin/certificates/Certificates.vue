@@ -30,6 +30,7 @@
 
 <script>
 export default {
-  name: 'Certificates'
+  name: 'Certificates',
+  middleware: 'auth'
 }
 </script>

@@ -32,20 +32,23 @@
         :class="{'is-active': isOpen}"
       >
         <div class="navbar-start">
-          <router-link :to="{name: 'overview'}" class="navbar-item" exact>
+          <router-link :to="{name: 'overview'}" class="navbar-item">
             Dashboard
           </router-link>
-          <router-link :to="{name: 'posts'}" class="navbar-item" exact>
+          <router-link :to="{name: 'posts'}" class="navbar-item">
             Blog Posts
           </router-link>
-          <router-link :to="{name: 'experiences'}" class="navbar-item" exact>
+          <router-link :to="{name: 'experiences'}" class="navbar-item">
             Ervaringen
           </router-link>
-          <router-link :to="{name: 'educations'}" class="navbar-item" exact>
+          <router-link :to="{name: 'educations'}" class="navbar-item">
             Opleidingen
           </router-link>
-          <router-link :to="{name: 'certificates'}" class="navbar-item" exact>
+          <router-link :to="{name: 'certificates'}" class="navbar-item">
             Certificaten
+          </router-link>
+          <router-link :to="{name: 'about'}" class="navbar-item">
+            Persoonlijke informatie
           </router-link>
         </div>
 

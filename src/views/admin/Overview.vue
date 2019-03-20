@@ -8,6 +8,7 @@
 
 <script>
 export default {
-  name: 'Overview'
+  name: 'Overview',
+  middleware: 'auth'
 }
 </script>

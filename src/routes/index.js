@@ -61,6 +61,10 @@ const CertificatesEdit = () =>
     m => m.default || m
   )
 
+// About
+const About = () =>
+  import('../views/admin/about/About').then(m => m.default || m)
+
 export default [
   {
     path: '/',
@@ -179,6 +183,11 @@ export default [
             component: CertificatesEdit
           }
         ]
+      },
+      {
+        path: 'about',
+        name: 'about',
+        component: About
       },
       {
         path: 'profiel',

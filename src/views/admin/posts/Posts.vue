@@ -30,6 +30,7 @@
 
 <script>
 export default {
-  name: 'Posts'
+  name: 'Posts',
+  middleware: 'auth'
 }
 </script>

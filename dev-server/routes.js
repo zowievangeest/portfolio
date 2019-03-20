@@ -5,6 +5,7 @@ import authRoutes from './api/auth/auth-routes'
 import experienceRoutes from './api/experience/experiences-routes'
 import educationRoutes from './api/education/educations-routes'
 import certificateRoutes from './api/certificate/certificates-routes'
+import aboutRoute from './api/about/about-routes'
 
 /**
  * Registering all routes used by the API
@@ -18,4 +19,5 @@ export function registerRoutes(app) {
   app.use('/api', experienceRoutes)
   app.use('/api', educationRoutes)
   app.use('/api', certificateRoutes)
+  app.use('/api', aboutRoute)
 }

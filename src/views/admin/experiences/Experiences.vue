@@ -30,6 +30,7 @@
 
 <script>
 export default {
-  name: 'Experiences'
+  name: 'Experiences',
+  middleware: 'auth'
 }
 </script>

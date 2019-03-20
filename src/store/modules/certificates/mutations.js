@@ -13,16 +13,16 @@ import {
 
 export default {
   /**
-   * Mutation for education creation
+   * Mutation for certificate creation
    * @param state
-   * @param education
+   * @param certificate
    */
-  [CREATE_CERTIFICATE](state, {education}) {
-    state.certificates.push(education)
+  [CREATE_CERTIFICATE](state, {certificate}) {
+    state.certificates.push(certificate)
   },
 
   /**
-   * Mutation for deleting single education on id
+   * Mutation for deleting single certificate on id
    * @param state
    * @param id
    */
@@ -31,17 +31,17 @@ export default {
   },
 
   /**
-   * Mutation for updating single education
+   * Mutation for updating single certificate
    * @param state
-   * @param education
+   * @param certificate
    */
-  [UPDATE_CERTIFICATE](state, {education}) {
-    state.certificates.splice(state.certificates.indexOf(education), 1)
-    state.certificates.push(education)
+  [UPDATE_CERTIFICATE](state, {certificate}) {
+    state.certificates.splice(state.certificates.indexOf(certificate), 1)
+    state.certificates.push(certificate)
   },
 
   /**
-   * Mutation for fetching education if success
+   * Mutation for fetching certificate if success
    * @param state
    * @param certificates
    */
