@@ -30,12 +30,7 @@
             ></router-link>
           </li>
           <div class="last-nav-item">
-            <a
-              v-for="(social, index) in socials"
-              :key="index"
-              :href="social.link"
-              ><b-icon :icon="social.icon" custom-size="mdi-24px"> </b-icon
-            ></a>
+            <Socials />
           </div>
         </ul>
       </div>
@@ -44,13 +39,14 @@
   </div>
 </template>
 <script>
-const {items, socials} = require('../../../routes/menu-items.json')
+import Socials from '../socials/Socials'
+const {items} = require('../../../routes/menu-items.json')
 export default {
   name: 'Navbar',
+  components: {Socials},
   data() {
     return {
       items,
-      socials,
       isHidden: false
     }
   },

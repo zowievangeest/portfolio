@@ -1,0 +1,13 @@
+.socials {
+  margin-top: 40px;
+  & a {
+    padding: 0.5rem;
+    &:hover {
+      color: #fff;
+    }
+  }
+  & a:hover span {
+    transition: all ease 0.3s;
+    transform: rotate(360deg);
+  }
+}

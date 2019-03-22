@@ -6,16 +6,19 @@
         <router-view :data="portfolio"> </router-view>
       </keep-alive>
     </transition>
+    <Footer />
   </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 import Navbar from '../components/portfolio/navbar/Navbar'
+import Footer from '../components/portfolio/footer/Footer'
 
 export default {
   name: 'Portfolio',
   components: {
+    Footer,
     Navbar
   },
   async beforeMount() {
