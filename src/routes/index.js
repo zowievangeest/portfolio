@@ -2,7 +2,7 @@
 const Login = () => import('../views/admin/Login').then(m => m.default || m)
 
 // Portfolio views
-const Home = () => import('../views/Home').then(m => m.default || m)
+const Portfolio = () => import('../views/Portfolio').then(m => m.default || m)
 
 // Dashboard views
 const Dashboard = () =>
@@ -65,11 +65,76 @@ const CertificatesEdit = () =>
 const About = () =>
   import('../views/admin/about/About').then(m => m.default || m)
 
+// Portfolio
+const PortfolioHome = () =>
+  import('../views/portfolio/home/Home').then(m => m.default || m)
+
+const PortfolioAbout = () =>
+  import('../views/portfolio/about/About').then(m => m.default || m)
+
+const PortfolioExperiences = () =>
+  import('../views/portfolio/experiences/Experiences').then(m => m.default || m)
+
+const PortfolioEducations = () =>
+  import('../views/portfolio/educations/Educations').then(m => m.default || m)
+
+const PortfolioCertificates = () =>
+  import('../views/portfolio/certificates/Certificates').then(
+    m => m.default || m
+  )
+
+const PortfolioItems = () =>
+  import('../views/portfolio/portfolio/PortfolioItems').then(
+    m => m.default || m
+  )
+
+const PortfolioBlog = () =>
+  import('../views/portfolio/blog/Blog').then(m => m.default || m)
+
 export default [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'portfolio',
+    component: Portfolio,
+    redirect: '/home',
+    props: true,
+    children: [
+      {
+        path: 'home',
+        name: 'portfolio/home',
+        component: PortfolioHome
+      },
+      {
+        path: 'about',
+        name: 'portfolio/about',
+        component: PortfolioAbout
+      },
+      {
+        path: 'expriences',
+        name: 'portfolio/experiences',
+        component: PortfolioExperiences
+      },
+      {
+        path: 'educations',
+        name: 'portfolio/educations',
+        component: PortfolioEducations
+      },
+      {
+        path: 'certificates',
+        name: 'portfolio/certificates',
+        component: PortfolioCertificates
+      },
+      {
+        path: 'portfolio',
+        name: 'portfolio/portfolio',
+        component: PortfolioItems
+      },
+      {
+        path: 'blog',
+        name: 'portfolio/blog-posts',
+        component: PortfolioBlog
+      }
+    ]
   },
   {
     path: '/admin',

@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "name": "Home",
+      "to": "portfolio/home"
+    },
+    {
+      "name": "Over Mij",
+      "to": "portfolio/about"
+    },
+    {
+      "name": "Ervaringen",
+      "to": "portfolio/experiences"
+    },
+    {
+      "name": "Opleidingen",
+      "to": "portfolio/educations"
+    },
+    {
+      "name": "Certificaten",
+      "to": "portfolio/certificates"
+    },
+    {
+      "name": "Portfolio",
+      "to": "portfolio/portfolio"
+    },
+    {
+      "name": "Blog Posts",
+      "to": "portfolio/blog-posts"
+    }
+  ],
+  "socials": [
+    {
+      "icon": "github-circle",
+      "link": "https://github.com/zowievangeest"
+    },
+    {
+      "icon": "linkedin-box",
+      "link": "https://linkedin.com/in/zowie"
+    },
+    {
+      "icon": "stack-overflow",
+      "link": "https://stackoverflow.com/users/3227342/"
+    },
+    {
+      "icon": "telegram",
+      "link": "https://telegram.me/zowie93"
+    }
+  ]
+}
