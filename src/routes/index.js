@@ -78,11 +78,6 @@ const PortfolioExperiences = () =>
 const PortfolioEducations = () =>
   import('../views/portfolio/educations/Educations').then(m => m.default || m)
 
-const PortfolioCertificates = () =>
-  import('../views/portfolio/certificates/Certificates').then(
-    m => m.default || m
-  )
-
 const PortfolioItems = () =>
   import('../views/portfolio/portfolio/PortfolioItems').then(
     m => m.default || m
@@ -118,11 +113,6 @@ export default [
         path: 'educations',
         name: 'portfolio/educations',
         component: PortfolioEducations
-      },
-      {
-        path: 'certificates',
-        name: 'portfolio/certificates',
-        component: PortfolioCertificates
       },
       {
         path: 'portfolio',

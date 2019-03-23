@@ -13,12 +13,8 @@
       "to": "portfolio/experiences"
     },
     {
-      "name": "Opleidingen",
+      "name": "Educatie",
       "to": "portfolio/educations"
-    },
-    {
-      "name": "Certificaten",
-      "to": "portfolio/certificates"
     },
     {
       "name": "Portfolio",

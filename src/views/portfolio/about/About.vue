@@ -11,7 +11,7 @@
       </div>
       <div class="columns has-text-white">
         <div
-          class="column column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet"
+          class="column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet"
         >
           <hr />
           <Subtitle subtitle="Mijn profiel" class="port-sub-title" />

@@ -37,4 +37,12 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.portfolio {
+  background: #0e0e0e;
+}
+section {
+  padding: 2rem 1.5rem 8rem 1.5rem;
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.6);
+}
+</style>
