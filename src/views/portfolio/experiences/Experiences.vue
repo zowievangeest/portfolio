@@ -80,13 +80,10 @@ export default {
   },
   computed: {
     experiences() {
-      const filter = {
-        show: true
-      }
       let {experiences} = this.data
 
       experiences = experiences.filter(item => {
-        return !(item['show'] === undefined || item['show'] !== filter.show)
+        return !(item['show'] === undefined || item['show'] !== true)
       })
 
       experiences = experiences.sort(function(a, b) {

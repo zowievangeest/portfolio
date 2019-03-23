@@ -86,6 +86,9 @@ const PortfolioItems = () =>
 const PortfolioBlog = () =>
   import('../views/portfolio/blog/Blog').then(m => m.default || m)
 
+const PortfolioBlogSingle = () =>
+  import('../views/portfolio/blog/BlogSingle').then(m => m.default || m)
+
 export default [
   {
     path: '/',
@@ -123,6 +126,11 @@ export default [
         path: 'blog',
         name: 'portfolio/blog-posts',
         component: PortfolioBlog
+      },
+      {
+        path: 'blog/:id',
+        name: 'portfolio/blog-posts-single',
+        component: PortfolioBlogSingle
       }
     ]
   },

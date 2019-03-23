@@ -15,7 +15,11 @@ export function index(req, res) {
     Certificates.find(),
     Educations.find(),
     Experiences.find(),
-    Posts.find()
+    Posts.find().populate(
+      'author',
+      {email: 'email', first: 'first', last: 'last'},
+      'user'
+    )
   ])
     .then(results => {
       const [about, certificates, educations, experiences, posts] = results

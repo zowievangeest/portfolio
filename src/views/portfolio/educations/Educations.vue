@@ -141,13 +141,10 @@ export default {
       return educations
     },
     certificates() {
-      const filter = {
-        show: true
-      }
       let {certificates} = this.data
 
       certificates = certificates.filter(item => {
-        return !(item['show'] === undefined || item['show'] !== filter.show)
+        return !(item['show'] === undefined || item['show'] !== true)
       })
 
       certificates = certificates.sort(function(a, b) {
