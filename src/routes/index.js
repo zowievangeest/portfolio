@@ -61,6 +61,16 @@ const CertificatesEdit = () =>
     m => m.default || m
   )
 
+// Projects
+const Projects = () =>
+  import('../views/admin/projects/Projects').then(m => m.default || m)
+const ProjectsCreate = () =>
+  import('../views/admin/projects/ProjectsCreate').then(m => m.default || m)
+const ProjectsAll = () =>
+  import('../views/admin/projects/ProjectsAll').then(m => m.default || m)
+const ProjectsEdit = () =>
+  import('../views/admin/projects/ProjectsEdit').then(m => m.default || m)
+
 // About
 const About = () =>
   import('../views/admin/about/About').then(m => m.default || m)
@@ -244,6 +254,29 @@ export default [
             path: 'edit/:id',
             name: 'certificates/edit',
             component: CertificatesEdit
+          }
+        ]
+      },
+      {
+        path: 'projects',
+        name: 'projects',
+        component: Projects,
+        redirect: '/admin/dashboard/projects/all',
+        children: [
+          {
+            path: 'all',
+            name: 'projects/all',
+            component: ProjectsAll
+          },
+          {
+            path: 'create',
+            name: 'projects/create',
+            component: ProjectsCreate
+          },
+          {
+            path: 'edit/:id',
+            name: 'projects/edit',
+            component: ProjectsEdit
           }
         ]
       },

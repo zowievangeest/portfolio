@@ -6,6 +6,7 @@ import experienceRoutes from './api/experience/experiences-routes'
 import educationRoutes from './api/education/educations-routes'
 import certificateRoutes from './api/certificate/certificates-routes'
 import aboutRoute from './api/about/about-routes'
+import projectRoute from './api/project/projects-routes'
 import portfolioRoute from './api/portfolio/portfolio-routes'
 
 /**
@@ -21,5 +22,6 @@ export function registerRoutes(app) {
   app.use('/api', educationRoutes)
   app.use('/api', certificateRoutes)
   app.use('/api', aboutRoute)
+  app.use('/api', projectRoute)
   app.use('/api', portfolioRoute)
 }

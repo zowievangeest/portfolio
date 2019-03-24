@@ -35,6 +35,9 @@
           <router-link :to="{name: 'posts'}" class="navbar-item">
             Blog Posts
           </router-link>
+          <router-link :to="{name: 'projects'}" class="navbar-item">
+            Projecten
+          </router-link>
           <router-link :to="{name: 'experiences'}" class="navbar-item">
             Ervaringen
           </router-link>
