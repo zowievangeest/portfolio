@@ -33,8 +33,10 @@
               custom-size="mdi-18px"
               class="heart-icon"
             ></b-icon
-            ><span class="copyright-txt">Zowie van Geest</span> -
-            {{ new Date().getFullYear() }} © Copyright
+            ><span class="copyright-txt is-small">Zowie van Geest</span> —
+            <span class="is-size-6"
+              >{{ new Date().getFullYear() }} © Copyright</span
+            >
             <BackToTop />
           </p>
         </div>

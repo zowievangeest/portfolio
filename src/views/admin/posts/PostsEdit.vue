@@ -1,7 +1,6 @@
 <template>
   <div>
     <hr />
-    <h1>Edit Post</h1>
     <div class="columns">
       <div class="column">
         <div class="field">

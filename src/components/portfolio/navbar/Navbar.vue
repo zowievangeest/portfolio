@@ -4,10 +4,12 @@
       <div class="columns">
         <div class="column">
           <div class="logo">
-            <img
-              src="../../../assets/images/logo/logo-zowie-van-geest.svg"
-              alt=""
-            />
+            <router-link :to="{name: 'portfolio/home'}">
+              <img
+                src="../../../assets/images/logo/logo-zowie-van-geest.svg"
+                alt=""
+              />
+            </router-link>
           </div>
           <div class="nav-icon float-right" @click="isHidden = !isHidden">
             <span></span>

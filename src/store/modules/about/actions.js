@@ -31,7 +31,6 @@ export const updateAbout = ({commit}, payload) => {
     Vue.$http
       .put('/about', payload)
       .then(res => {
-        console.log(payload)
         commit(types.UPDATE_ABOUT, res)
         resolve(res.success)
       })

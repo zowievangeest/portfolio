@@ -2,7 +2,7 @@
   <div>
     <section id="blog" class="hero is-dark has-background-black">
       <Title title="Blog" />
-      <div class="container">
+      <div class="container" v-if="posts">
         <div class="columns is-multiline">
           <div
             class="column blog-post is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop"

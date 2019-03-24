@@ -31,7 +31,6 @@ export const login = ({commit}, payload) => {
         resolve(res.success)
       })
       .catch(err => {
-        console.log(err.response)
         reject(err)
       })
   })

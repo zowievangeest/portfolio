@@ -18,3 +18,12 @@
   background-color: transparent;
   border: 1px solid #fff;
 }
+
+.tag-back {
+  cursor: pointer;
+  &:hover {
+    color: #05adff;
+    border: 1px solid #55c5cf;
+    transition: all ease-in-out 0.3s;
+  }
+}

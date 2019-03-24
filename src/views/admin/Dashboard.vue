@@ -2,14 +2,14 @@
   <div>
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <router-link class="navbar-item" :to="{name: 'overview'}" exact>
           <img
             src="../../assets/images/logo/logo-zowie-van-geest.svg"
-            width="112"
+            width="105"
             height="40"
             class="logo"
           />
-        </a>
+        </router-link>
 
         <a
           role="button"
@@ -32,9 +32,6 @@
         :class="{'is-active': isOpen}"
       >
         <div class="navbar-start">
-          <router-link :to="{name: 'overview'}" class="navbar-item">
-            Dashboard
-          </router-link>
           <router-link :to="{name: 'posts'}" class="navbar-item">
             Blog Posts
           </router-link>
@@ -53,6 +50,9 @@
         </div>
 
         <div class="navbar-end">
+          <router-link :to="{name: 'portfolio/home'}" class="navbar-item">
+            <b-icon icon="web" custom-size="mdi-24px" class="web-icon"></b-icon>
+          </router-link>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               {{ fullname }}

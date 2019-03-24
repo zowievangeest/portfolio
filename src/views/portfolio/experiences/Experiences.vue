@@ -26,7 +26,7 @@
                       <span>
                         {{ $moment(experience.startDate).format('MM-YYYY') }}
                       </span>
-                      <span class="has-text-primary"> - </span>
+                      <span class="has-text-primary"> &nbsp;—&nbsp; </span>
                       <span v-if="!experience.current">
                         {{ $moment(experience.endDate).format('MM-YYYY')
                         }}<br />
