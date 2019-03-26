@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss">
 .portfolio {
-  background: #0e0e0e;
+  background: #191919;
 }
 section {
   padding: 2rem 1.5rem 8rem 1.5rem;
