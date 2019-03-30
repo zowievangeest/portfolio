@@ -10,10 +10,10 @@
       background: #0e0e0e;
     }
     & img {
-      filter: grayscale(100%);
+      filter: grayscale(0%);
       transition: all ease 0.5s;
       &:hover {
-        filter: grayscale(0%);
+        filter: grayscale(100%);
         transition: all ease 0.5s;
       }
     }

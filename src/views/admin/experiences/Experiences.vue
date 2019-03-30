@@ -8,7 +8,7 @@
               Ervaring
             </h1>
             <h2 class="subtitle">
-              Mijn ervaring
+              Mijn ervaringen
             </h2>
           </div>
           <div class="column">

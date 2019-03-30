@@ -71,7 +71,9 @@
               <h2 class="has-text-weight-bold">Website</h2>
             </div>
             <div class="column is-3 is-5-tablet">
-              <a :href="about.url" target="_blank">{{ about.url }}</a>
+              <a :href="about.url" target="_blank">{{
+                removeHttps(about.url)
+              }}</a>
             </div>
             <div class="column is-2 is-hidden-tablet is-hidden-mobile">
               <p class="has-text-centered">|</p>
@@ -102,6 +104,12 @@ export default {
     about() {
       const {about} = this.data
       return about
+    }
+  },
+  methods: {
+    removeHttps(url) {
+      const newUrl = new URL(url)
+      return newUrl.hostname
     }
   }
 }

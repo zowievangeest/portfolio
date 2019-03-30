@@ -37,9 +37,12 @@
                     website
                   </h4>
                   <p class="is-size-7 has-text-grey">
-                    <a :href="project.projectUrl" target="_blank">{{
-                      removeHttps(project.projectUrl)
-                    }}</a>
+                    <a
+                      :href="project.projectUrl"
+                      target="_blank"
+                      class="has-text-grey"
+                      >{{ removeHttps(project.projectUrl) }}</a
+                    >
                   </p>
                 </div>
               </div>
@@ -116,7 +119,8 @@ export default {
   },
   methods: {
     removeHttps(url) {
-      return url.replace(/(^\w+:|^)\/\//, '')
+      const newUrl = new URL(url)
+      return newUrl.hostname
     }
   }
 }

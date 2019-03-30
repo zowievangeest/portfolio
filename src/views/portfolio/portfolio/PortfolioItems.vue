@@ -86,7 +86,8 @@ export default {
   },
   methods: {
     removeHttps(url) {
-      return url.replace(/(^\w+:|^)\/\//, '')
+      const newUrl = new URL(url)
+      return newUrl.hostname
     }
   }
 }
