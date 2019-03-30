@@ -3,12 +3,10 @@
     <h1>Overview</h1>
   </div>
 </template>
-
-<style lang="scss" scoped></style>
-
 <script>
 export default {
   name: 'Overview',
   middleware: 'auth'
 }
 </script>
+<style lang="scss" scoped></style>

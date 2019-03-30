@@ -81,15 +81,6 @@
     </transition>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.router-link-active {
-  padding-bottom: 5px;
-  background: #292929;
-  border-bottom: 3px solid #05adff;
-}
-</style>
-
 <script>
 import {mapGetters} from 'vuex'
 
@@ -116,3 +107,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.router-link-active {
+  padding-bottom: 5px;
+  background: #292929;
+  border-bottom: 3px solid #05adff;
+}
+</style>

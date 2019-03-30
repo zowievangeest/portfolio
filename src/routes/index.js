@@ -8,7 +8,7 @@ const Portfolio = () => import('../views/Portfolio').then(m => m.default || m)
 const Dashboard = () =>
   import('../views/admin/Dashboard').then(m => m.default || m)
 const Overview = () =>
-  import('../views/admin/Overview').then(m => m.default || m)
+  import('../views/admin/overview/Overview').then(m => m.default || m)
 const Profiel = () => import('../views/admin/Profiel').then(m => m.default || m)
 
 // Posts
