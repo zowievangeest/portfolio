@@ -99,6 +99,11 @@ const PortfolioBlog = () =>
 const PortfolioBlogSingle = () =>
   import('../views/portfolio/blog/BlogSingle').then(m => m.default || m)
 
+const PortfolioProjectSingle = () =>
+  import('../views/portfolio/portfolio/PortfolioSingle').then(
+    m => m.default || m
+  )
+
 export default [
   {
     path: '/',
@@ -131,6 +136,11 @@ export default [
         path: 'portfolio',
         name: 'portfolio/portfolio',
         component: PortfolioItems
+      },
+      {
+        path: 'project/:id',
+        name: 'portfolio/project-single',
+        component: PortfolioProjectSingle
       },
       {
         path: 'blog',

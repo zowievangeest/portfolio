@@ -7,10 +7,7 @@
           .slice(0, wordLength)
           .join(' ')
       }}
-      <router-link
-        :to="{name: 'portfolio/blog-posts-single', params: {id: link}}"
-        exact
-      >
+      <router-link :to="{name: page, params: {id: link}}" exact>
         ...</router-link
       >
     </span>
@@ -26,6 +23,10 @@ export default {
       default: ''
     },
     link: {
+      type: String,
+      default: ''
+    },
+    page: {
       type: String,
       default: ''
     }

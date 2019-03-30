@@ -23,7 +23,11 @@
                   >
                 </h1>
                 <p class="blog-txt">
-                  <Ellipsis :content="post.body" :link="post._id" />
+                  <Ellipsis
+                    :content="post.body"
+                    :link="post._id"
+                    page="portfolio/blog-posts-single"
+                  />
                 </p>
                 <div class="blog-info has-text-weight-bold is-size-7">
                   <a :href="`mailto: ${post.author.email}`"

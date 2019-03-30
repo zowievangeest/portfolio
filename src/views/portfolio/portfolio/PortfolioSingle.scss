@@ -1,0 +1,44 @@
+@import '../../../assets/scss/portfolio/spans';
+#portfoliosingle {
+  min-height: 100vh;
+  background: #4a4a4a;
+  & .container {
+    z-index: 8;
+    & .title {
+      margin: 50px auto;
+    }
+    & .intro-txt {
+      margin: 50px auto;
+    }
+    & .project-post {
+      & .project-small-card {
+        padding: 10px;
+        background: #0e0e0e;
+        border-radius: 15px;
+      }
+    }
+    & .project-title {
+      margin-top: 50px;
+      & .project-txt {
+        margin-bottom: 40px;
+      }
+      & img {
+        margin-bottom: 50px;
+      }
+    }
+    & img {
+      filter: grayscale(100%);
+      transition: all ease 0.5s;
+      &:hover {
+        filter: grayscale(0%);
+        transition: all ease 0.5s;
+      }
+    }
+    & a {
+      color: #fff;
+      &:hover {
+        color: #05adff;
+      }
+    }
+  }
+}
