@@ -69,13 +69,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.margin-left-10 {
-  margin-left: 10px;
-}
-</style>
-
 <script>
 import {mapGetters} from 'vuex'
 import Published from '../../../components/dashboard/published/Published.vue'
@@ -105,12 +98,14 @@ export default {
       this.$dialog.confirm({
         message: 'Weet je zeker dat je het wilt verwijderen?',
         onConfirm: () => {
-          this.$store.dispatch('posts/deletePost', id)
-          this.$toast.open({
-            duration: 5000,
-            message: 'Blog verwijderd',
-            position: 'is-bottom-right',
-            type: 'is-danger'
+          this.$store.dispatch('posts/deletePost', id).then(() => {
+            this.$store.dispatch('posts/fetchAllPosts')
+            this.$toast.open({
+              duration: 5000,
+              message: 'Blog verwijderd',
+              position: 'is-bottom-right',
+              type: 'is-danger'
+            })
           })
         }
       })
@@ -118,3 +113,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.margin-left-10 {
+  margin-left: 10px;
+}
+</style>

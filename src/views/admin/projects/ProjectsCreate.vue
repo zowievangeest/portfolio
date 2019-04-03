@@ -25,6 +25,27 @@
       <div class="column">
         <div class="field">
           <label class="label"
+            >Korte Beschrijving<sup class="has-text-danger"> *</sup></label
+          >
+          <div class="control">
+            <textarea
+              name="korte beschrijving"
+              v-validate="'required'"
+              class="textarea"
+              v-model="project.shortDescription"
+              placeholder="Korte beschrijving"
+            ></textarea>
+            <span class="has-text-danger">{{
+              errors.first('korte beschrijving')
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label"
             >Beschrijving<sup class="has-text-danger"> *</sup></label
           >
           <div class="control">
@@ -168,13 +189,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.render-img {
-  margin-bottom: 10px;
-}
-</style>
-
 <script>
 export default {
   name: 'ProjectsCreate',
@@ -183,6 +197,7 @@ export default {
     return {
       project: {
         title: '',
+        shortDescription: '',
         description: '',
         client: '',
         imgUrl: '',
@@ -231,3 +246,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.render-img {
+  margin-bottom: 10px;
+}
+</style>

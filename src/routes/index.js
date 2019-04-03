@@ -8,7 +8,7 @@ const Portfolio = () => import('../views/Portfolio').then(m => m.default || m)
 const Dashboard = () =>
   import('../views/admin/Dashboard').then(m => m.default || m)
 const Overview = () =>
-  import('../views/admin/Overview').then(m => m.default || m)
+  import('../views/admin/overview/Overview').then(m => m.default || m)
 const Profiel = () => import('../views/admin/Profiel').then(m => m.default || m)
 
 // Posts
@@ -99,6 +99,11 @@ const PortfolioBlog = () =>
 const PortfolioBlogSingle = () =>
   import('../views/portfolio/blog/BlogSingle').then(m => m.default || m)
 
+const PortfolioProjectSingle = () =>
+  import('../views/portfolio/portfolio/PortfolioSingle').then(
+    m => m.default || m
+  )
+
 export default [
   {
     path: '/',
@@ -131,6 +136,11 @@ export default [
         path: 'portfolio',
         name: 'portfolio/portfolio',
         component: PortfolioItems
+      },
+      {
+        path: 'project/:id',
+        name: 'portfolio/project-single',
+        component: PortfolioProjectSingle
       },
       {
         path: 'blog',

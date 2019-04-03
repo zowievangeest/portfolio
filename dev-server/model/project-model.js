@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const projectSchema = new mongoose.Schema({
   title: String,
   description: String,
+  shortDescription: String,
   client: String,
   imgUrl: String,
   projectUrl: String,

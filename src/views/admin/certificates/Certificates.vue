@@ -25,12 +25,10 @@
     </div>
   </section>
 </template>
-
-<style lang="scss" scoped></style>
-
 <script>
 export default {
   name: 'Certificates',
   middleware: 'auth'
 }
 </script>
+<style lang="scss" scoped></style>

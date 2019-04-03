@@ -8,7 +8,7 @@
               Ervaring
             </h1>
             <h2 class="subtitle">
-              Mijn ervaring
+              Mijn ervaringen
             </h2>
           </div>
           <div class="column">
@@ -25,12 +25,10 @@
     </div>
   </section>
 </template>
-
-<style lang="scss" scoped></style>
-
 <script>
 export default {
   name: 'Experiences',
   middleware: 'auth'
 }
 </script>
+<style lang="scss" scoped></style>

@@ -63,7 +63,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .login {
   padding: 20px;

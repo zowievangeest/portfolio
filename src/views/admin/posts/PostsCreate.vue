@@ -92,13 +92,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.render-img {
-  margin-bottom: 10px;
-}
-</style>
-
 <script>
 export default {
   name: 'PostsCreate',
@@ -152,3 +145,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.render-img {
+  margin-bottom: 10px;
+}
+</style>

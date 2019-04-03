@@ -8,8 +8,6 @@
     "build": "export NODE_ENV=production && babel dev-server --out-dir prod-server && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lint:style": "stylelint '**/*.vue' --syntax scss",
-    "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit",
     "build-prod-sentry": "export VUE_APP_SENTRY_RELEASE=$(git rev-parse HEAD) && yarn build",
     "dev": "concurrently \"export NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" "
   },

@@ -27,13 +27,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.button {
-  margin-right: 5px;
-}
-</style>
-
 <script>
 export default {
   name: 'PostsSingle',
@@ -63,3 +56,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.button {
+  margin-right: 5px;
+}
+</style>
