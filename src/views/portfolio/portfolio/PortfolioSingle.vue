@@ -104,16 +104,14 @@ export default {
       const id = this.$route.params.id
 
       if (id) {
-        this.$store
-          .dispatch('projects/fetchProjectById', this.$route.params.id)
-          .then(() => {
-            let newProject
-            newProject = Object.assign(
-              {},
-              this.$store.getters['projects/project']
-            )
-            this.project = newProject
-          })
+        this.$store.dispatch('projects/fetchProjectById', id).then(() => {
+          let newProject
+          newProject = Object.assign(
+            {},
+            this.$store.getters['projects/project']
+          )
+          this.project = newProject
+        })
       }
     },
     back() {

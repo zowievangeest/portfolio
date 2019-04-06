@@ -72,13 +72,11 @@ export default {
       const id = this.$route.params.id
 
       if (id) {
-        this.$store
-          .dispatch('posts/fetchPostById', this.$route.params.id)
-          .then(() => {
-            let newPost
-            newPost = Object.assign({}, this.$store.getters['posts/post'])
-            this.post = newPost
-          })
+        this.$store.dispatch('posts/fetchPostById', id).then(() => {
+          let newPost
+          newPost = Object.assign({}, this.$store.getters['posts/post'])
+          this.post = newPost
+        })
       }
     },
     back() {
