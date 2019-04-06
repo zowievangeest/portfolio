@@ -93,31 +93,32 @@ export default {
       project: null
     }
   },
-  props: {
-    data: {
-      type: Object,
-      default: null
-    }
+  mounted() {
+    this.fetchData()
   },
-  beforeMount() {
-    let {projects} = this.data
-    let project
-
-    const projectId = this.$store.state.route.params.id
-
-    projects = projects.filter(item => {
-      return !(item['_id'] === undefined || item['_id'] !== projectId)
-    })
-
-    projects = projects.sort(function(a, b) {
-      return new Date(b.createdAt) - new Date(a.createdAt)
-    })
-
-    project = Object.assign({}, projects[0])
-
-    return (this.project = project)
+  watch: {
+    $route: 'fetchData'
   },
   methods: {
+    fetchData() {
+      const id = this.$route.params.id
+
+      if (id) {
+        this.$store
+          .dispatch('projects/fetchProjectById', this.$route.params.id)
+          .then(() => {
+            let newProject
+            newProject = Object.assign(
+              {},
+              this.$store.getters['projects/project']
+            )
+            this.project = newProject
+          })
+      }
+    },
+    back() {
+      this.$router.go(-1)
+    },
     removeHttps(url) {
       const newUrl = new URL(url)
       return newUrl.hostname

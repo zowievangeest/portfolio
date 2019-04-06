@@ -28,7 +28,7 @@
                 <hr />
                 <span
                   class="tag tag-back is-large is-tag-outline-white is-centered"
-                  @click="$router.go(-1)"
+                  @click="back"
                 >
                   terug
                 </span>
@@ -49,32 +49,41 @@ export default {
   },
   data() {
     return {
-      post: null
+      post: {
+        title: '',
+        body: '',
+        imgUrl: '',
+        author: {
+          email: '',
+          first: '',
+          last: ''
+        }
+      }
     }
   },
-  props: {
-    data: {
-      type: Object,
-      default: null
-    }
+  mounted() {
+    this.fetchData()
   },
-  beforeMount() {
-    let {posts} = this.data
-    let post
+  watch: {
+    $route: 'fetchData'
+  },
+  methods: {
+    fetchData() {
+      const id = this.$route.params.id
 
-    const postId = this.$store.state.route.params.id
-
-    posts = posts.filter(item => {
-      return !(item['_id'] === undefined || item['_id'] !== postId)
-    })
-
-    posts = posts.sort(function(a, b) {
-      return new Date(b.createdAt) - new Date(a.createdAt)
-    })
-
-    post = Object.assign({}, posts[0])
-
-    return (this.post = post)
+      if (id) {
+        this.$store
+          .dispatch('posts/fetchPostById', this.$route.params.id)
+          .then(() => {
+            let newPost
+            newPost = Object.assign({}, this.$store.getters['posts/post'])
+            this.post = newPost
+          })
+      }
+    },
+    back() {
+      this.$router.go(-1)
+    }
   }
 }
 </script>
