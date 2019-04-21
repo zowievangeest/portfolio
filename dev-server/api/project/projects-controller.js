@@ -102,5 +102,5 @@ export function show(req, res) {
       return res.status(404).json()
     }
     return res.status(200).json({project: project})
-  }).populate('author', 'email', 'user')
+  }).populate('author', {email: 'email', first: 'first', last: 'last'}, 'user')
 }

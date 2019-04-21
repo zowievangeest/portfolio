@@ -21,67 +21,89 @@
               :src="about.image"
             />
           </figure>
-          <div class="columns has-text-centered-mobile">
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Naam</h2>
-            </div>
-            <div class="column is-3 is-5-tablet">{{ about.name }}</div>
-            <div class="column is-2 is-hidden-tablet is-hidden-mobile">
-              <p class="has-text-centered">|</p>
-            </div>
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Geboren</h2>
-            </div>
-            <div class="column is-3">
-              {{ $moment(about.birthday).format('DD MMMM YYYY') }}
-            </div>
+          <div class="field">
+            <b-switch v-model="isSwitched" size="is-medium">
+              {{ isSwitched ? 'Terminal modus' : 'Tekst modus' }}
+            </b-switch>
           </div>
-          <div class="columns has-text-centered-mobile">
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Email</h2>
+          <div class="aboutgroup">
+            <div class="terminalmode" v-show="isSwitched">
+              <vue-command
+                intro="Kom meer over mij te weten via de terminal!"
+                title="zowie@portfolio: ~ "
+                prompt="~zowie@portfolio:# "
+                help-text="Type help"
+                :help-timeout="1000"
+                show-intro
+                show-help
+                :yargs-options="{alias: {color: ['colour']}}"
+                :commands="commands"
+              />
             </div>
-            <div class="column is-3 is-5-tablet">
-              <a :href="`mailto:${about.email}`">{{ about.email }}</a>
+            <div class="textmode" v-show="!isSwitched">
+              <div class="columns has-text-centered-mobile">
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Naam</h2>
+                </div>
+                <div class="column is-3 is-5-tablet">{{ about.name }}</div>
+                <div class="column is-2 is-hidden-tablet is-hidden-mobile">
+                  <p class="has-text-centered">|</p>
+                </div>
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Geboren</h2>
+                </div>
+                <div class="column is-3">
+                  {{ $moment(about.birthday).format('DD MMMM YYYY') }}
+                </div>
+              </div>
+              <div class="columns has-text-centered-mobile">
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Email</h2>
+                </div>
+                <div class="column is-3 is-5-tablet">
+                  <a :href="`mailto:${about.email}`">{{ about.email }}</a>
+                </div>
+                <div class="column is-2 is-hidden-tablet is-hidden-mobile">
+                  <p class="has-text-centered">|</p>
+                </div>
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Plaats</h2>
+                </div>
+                <div class="column is-3">{{ about.birthplace }}</div>
+              </div>
+              <div class="columns has-text-centered-mobile">
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Telefoon</h2>
+                </div>
+                <div class="column is-3 is-5-tablet">
+                  <a :href="`tel:${about.phone}`">{{ about.phone }}</a>
+                </div>
+                <div class="column is-2 is-hidden-tablet is-hidden-mobile">
+                  <p class="has-text-centered">|</p>
+                </div>
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Nationaliteit</h2>
+                </div>
+                <div class="column is-3">{{ about.nationality }}</div>
+              </div>
+              <div class="columns has-text-centered-mobile">
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Website</h2>
+                </div>
+                <div class="column is-3 is-5-tablet">
+                  <a :href="about.url" target="_blank">{{
+                    removeHttps(about.url)
+                  }}</a>
+                </div>
+                <div class="column is-2 is-hidden-tablet is-hidden-mobile">
+                  <p class="has-text-centered">|</p>
+                </div>
+                <div class="column is-2">
+                  <h2 class="has-text-weight-bold">Geslacht</h2>
+                </div>
+                <div class="column is-3">{{ about.gender }}</div>
+              </div>
             </div>
-            <div class="column is-2 is-hidden-tablet is-hidden-mobile">
-              <p class="has-text-centered">|</p>
-            </div>
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Plaats</h2>
-            </div>
-            <div class="column is-3">{{ about.birthplace }}</div>
-          </div>
-          <div class="columns has-text-centered-mobile">
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Telefoon</h2>
-            </div>
-            <div class="column is-3 is-5-tablet">
-              <a :href="`tel:${about.phone}`">{{ about.phone }}</a>
-            </div>
-            <div class="column is-2 is-hidden-tablet is-hidden-mobile">
-              <p class="has-text-centered">|</p>
-            </div>
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Nationaliteit</h2>
-            </div>
-            <div class="column is-3">{{ about.nationality }}</div>
-          </div>
-          <div class="columns has-text-centered-mobile">
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Website</h2>
-            </div>
-            <div class="column is-3 is-5-tablet">
-              <a :href="about.url" target="_blank">{{
-                removeHttps(about.url)
-              }}</a>
-            </div>
-            <div class="column is-2 is-hidden-tablet is-hidden-mobile">
-              <p class="has-text-centered">|</p>
-            </div>
-            <div class="column is-2">
-              <h2 class="has-text-weight-bold">Geslacht</h2>
-            </div>
-            <div class="column is-3">{{ about.gender }}</div>
           </div>
         </div>
       </div>
@@ -91,15 +113,23 @@
 <script>
 import Title from '../../../components/portfolio/title/Title'
 import Subtitle from '../../../components/portfolio/subtitle/Subtitle'
+import returnCommands from './terminal/data.js'
+import VueCommand from 'vue-command'
+import 'vue-command/dist/vue-command.css'
+
 export default {
   name: 'About',
-  components: {Subtitle, Title},
+  components: {Subtitle, Title, VueCommand},
   props: {
     data: {
       type: Object,
       default: null
     }
   },
+  data: () => ({
+    isSwitched: true,
+    commands: returnCommands
+  }),
   computed: {
     about() {
       const {about} = this.data

@@ -8991,7 +8991,7 @@ node-releases@^1.1.8:
   dependencies:
     semver "^5.3.0"
 
-node-sass@^4.9.0:
+node-sass@^4.11.0, node-sass@^4.9.0:
   version "4.11.0"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.11.0.tgz#183faec398e9cbe93ba43362e2768ca988a6369a"
   integrity sha512-bHUdHTphgQJZaF1LASx0kAviPH7sGlcyNhWade4eVIpFp6tsn7SV8xNMTbsQFpEV9VXpnwTTnNYlfsZXgGgmkA==
@@ -12789,6 +12789,17 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-command@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/vue-command/-/vue-command-5.2.0.tgz#be86fccb11ab69b4fb6961643a8052147a450581"
+  integrity sha512-aTBCQTtD6DndBcTSJ3uCxrFZyNM6lMSVQ37q48MlgMAV9CxZ6i3ZDKL53FRbjzgrkViRUbaycgbMIdj1MjprjQ==
+  dependencies:
+    lodash "^4.17.11"
+    node-sass "^4.11.0"
+    sass-loader "^7.1.0"
+    vue "^2.5.21"
+    yargs-parser "^11.1.1"
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"
@@ -12886,7 +12897,7 @@ vue-typed-js@^0.1.2:
   dependencies:
     typed.js "git+https://github.com/mattboldt/typed.js.git"
 
-vue@^2.2.6:
+vue@^2.2.6, vue@^2.5.21:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==

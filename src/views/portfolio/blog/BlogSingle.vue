@@ -62,15 +62,15 @@ export default {
     }
   },
   mounted() {
-    this.fetchData()
+    this.fetchPostData()
   },
   watch: {
-    $route: 'fetchData'
+    $route: 'fetchPostData'
   },
   methods: {
-    fetchData() {
+    fetchPostData() {
       const id = this.$route.params.id
-
+      console.log(id)
       if (id) {
         this.$store.dispatch('posts/fetchPostById', id).then(() => {
           let newPost

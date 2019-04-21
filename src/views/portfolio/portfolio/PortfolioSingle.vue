@@ -94,13 +94,13 @@ export default {
     }
   },
   mounted() {
-    this.fetchData()
+    this.fetchProjectData()
   },
   watch: {
-    $route: 'fetchData'
+    $route: 'fetchProjectData'
   },
   methods: {
-    fetchData() {
+    fetchProjectData() {
       const id = this.$route.params.id
 
       if (id) {

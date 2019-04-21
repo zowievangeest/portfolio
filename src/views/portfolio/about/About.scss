@@ -1,6 +1,23 @@
 #about {
   min-height: 100vh;
   background: #4a4a4a;
+  & .vue-command {
+    background: #191919;
+    & .term {
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+    }
+
+    & .term-std {
+      min-height: 300px;
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+  }
+  & .aboutgroup {
+    margin-top: 60px;
+  }
   & .container {
     z-index: 8;
 
