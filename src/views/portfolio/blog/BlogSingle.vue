@@ -70,7 +70,6 @@ export default {
   methods: {
     fetchPostData() {
       const id = this.$route.params.id
-      console.log(id)
       if (id) {
         this.$store.dispatch('posts/fetchPostById', id).then(() => {
           let newPost
