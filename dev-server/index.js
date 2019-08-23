@@ -1,5 +1,10 @@
 import express from 'express'
+const cors = require('cors')
+const port = process.env.PORT || 3000
 const app = express()
+
+app.use(cors())
+
 const displayRoutes = require('express-routemap')
 import {registerRoutes} from './routes'
 import {setEnvironment} from './config/env'
@@ -28,9 +33,11 @@ app.get('*', (req, res) => {
 /**
  * Starts the server on the given port 3000
  */
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(
-    'Zowie - Portfolio draait op port 3000 in ' +
+    'Zowie - Portfolio draait op port ' +
+      port +
+      ' in ' +
       process.env.NODE_ENV +
       ' modus!'
   )

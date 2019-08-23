@@ -6,7 +6,7 @@ export default (commandList = {
         naam [optie] --voornaam --achternaam<br>
         email<br>
         telefoon<br>
-        geboortedatum<br>ß
+        geboortedatum<br>
         plaats<br>
         nationaliteit<br>`
   },

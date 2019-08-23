@@ -1,6 +1,5 @@
 import './axios'
 import './buefy'
-import './sentry'
 import './moment'
 import './veevalidate'
 import './vueparticles'
