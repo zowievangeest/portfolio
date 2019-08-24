@@ -3,13 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node prod-server/index.js",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "lint:style": "stylelint '**/*.vue' --syntax scss",
-    "dev": "concurrently \"export NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" ",
-    "run:db": "nodemon prod-server/index.js"
+    "start": "nodemon prod-server/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
