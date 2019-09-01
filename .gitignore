@@ -27,3 +27,4 @@ route-table.log*
 *.njsproj
 *.sln
 *.sw*
+/.env

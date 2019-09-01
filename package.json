@@ -3,13 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=production && node prod-server/index.js",
-    "serve": "vue-cli-service serve",
-    "build": "export NODE_ENV=production && babel dev-server --out-dir prod-server && vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "lint:style": "stylelint '**/*.vue' --syntax scss",
-    "build-prod-sentry": "export VUE_APP_SENTRY_RELEASE=$(git rev-parse HEAD) && yarn build",
-    "dev": "concurrently \"export NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" "
+    "start": "nodemon prod-server/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
