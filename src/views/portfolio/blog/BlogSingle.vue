@@ -44,6 +44,15 @@
 import Title from '../../../components/portfolio/title/Title'
 export default {
   name: 'BlogSingle',
+  metaInfo: {
+    title: 'Blog Post',
+    meta: [
+      {
+        name: 'description',
+        content: 'Blog post ' + this.post.title
+      }
+    ]
+  },
   components: {
     Title
   },

@@ -71,6 +71,15 @@
 import Title from '../../../components/portfolio/title/Title'
 export default {
   name: 'Experiences',
+  metaInfo: {
+    title: 'Ervaring',
+    meta: [
+      {
+        name: 'description',
+        content: 'Mijn ervaringen als DTP-er en Front-end Developer.'
+      }
+    ]
+  },
   components: {Title},
   props: {
     data: {

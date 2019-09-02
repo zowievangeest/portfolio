@@ -119,6 +119,15 @@ import 'vue-command/dist/vue-command.css'
 
 export default {
   name: 'About',
+  metaInfo: {
+    title: 'Over mij',
+    meta: [
+      {
+        name: 'description',
+        content: 'Informatie over mij als DTP-er en Front-end Developer.'
+      }
+    ]
+  },
   components: {Subtitle, Title, VueCommand},
   props: {
     data: {

@@ -21,7 +21,7 @@
       "to": "portfolio/portfolio"
     },
     {
-      "name": "Blog Posts",
+      "name": "Blog",
       "to": "portfolio/blog-posts"
     }
   ],
