@@ -30,6 +30,18 @@ import Typed from "typed.js"
 <script>
 export default {
   name: 'Home',
+  metaInfo: {
+    title: 'Home',
+    meta: [
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {
+        name: 'description',
+        content:
+          'DTP-er en Front-end Developer uit Delft met een passie voor het ontwikkelen van mooie en functionele gebruikerservaringen.'
+      }
+    ]
+  },
   props: {
     data: {
       type: Object,

@@ -26,7 +26,19 @@ export default {
     layout: null,
     defaultLayout: 'default'
   }),
-
+  metaInfo: {
+    title: 'Portfolio',
+    titleTemplate: '%s | Zowie van Geest - Front-end Developer',
+    meta: [
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {
+        name: 'description',
+        content:
+          'DTP-er en Front-end Developer uit Delft met een passie voor het ontwikkelen van mooie en functionele gebruikerservaringen.'
+      }
+    ]
+  },
   async mounted() {
     const vm = this
     await vm.$store.watch(state => {

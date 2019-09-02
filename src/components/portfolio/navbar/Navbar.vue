@@ -5,10 +5,7 @@
         <div class="column">
           <div class="logo">
             <router-link :to="{name: 'portfolio/home'}">
-              <img
-                src="../../../assets/images/logo/logo-zowie-van-geest.svg"
-                alt=""
-              />
+              <Logo />
             </router-link>
           </div>
           <div class="nav-icon float-right" @click="isHidden = !isHidden">
@@ -42,10 +39,12 @@
 </template>
 <script>
 import Socials from '../socials/Socials'
+import Logo from '../logo/Logo'
+
 const {items} = require('../../../routes/menu-items.json')
 export default {
   name: 'Navbar',
-  components: {Socials},
+  components: {Socials, Logo},
   data() {
     return {
       items,

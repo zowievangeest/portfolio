@@ -63,6 +63,15 @@ import Ellipsis from '../../../components/portfolio/ellipsis/Ellipsis'
 
 export default {
   name: 'PortfolioItems',
+  metaInfo: {
+    title: 'Projecten',
+    meta: [
+      {
+        name: 'description',
+        content: 'Mijn projecten als DTP-er en Front-end Developer.'
+      }
+    ]
+  },
   components: {Ellipsis, Title},
   props: {
     data: {

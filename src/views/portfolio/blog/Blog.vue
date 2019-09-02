@@ -49,6 +49,15 @@ import Title from '../../../components/portfolio/title/Title'
 import Ellipsis from '../../../components/portfolio/ellipsis/Ellipsis'
 export default {
   name: 'Blog',
+  metaInfo: {
+    title: 'Blog',
+    meta: [
+      {
+        name: 'description',
+        content: 'Op deze pagina vind je mijn online blog.'
+      }
+    ]
+  },
   components: {Ellipsis, Title},
   props: {
     data: {

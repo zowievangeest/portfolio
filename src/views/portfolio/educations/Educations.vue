@@ -114,6 +114,15 @@ import Title from '../../../components/portfolio/title/Title'
 import Subtitle from '../../../components/portfolio/subtitle/Subtitle'
 export default {
   name: 'Educations',
+  metaInfo: {
+    title: 'Educatie',
+    meta: [
+      {
+        name: 'description',
+        content: 'Mijn educatie als DTP-er en Front-end Developer.'
+      }
+    ]
+  },
   components: {Subtitle, Title},
   props: {
     data: {
