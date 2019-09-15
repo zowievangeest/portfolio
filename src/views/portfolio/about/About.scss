@@ -1,0 +1,51 @@
+#about {
+  min-height: 100vh;
+  background: #4a4a4a;
+  & .vue-command {
+    background: #191919;
+    & .term {
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+    }
+
+    & .term-std {
+      min-height: 300px;
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+  }
+  & .aboutgroup {
+    margin-top: 60px;
+  }
+  & .container {
+    z-index: 8;
+
+    & .intro-txt {
+      margin-top: 50px;
+      font-weight: 600;
+      line-height: 45px;
+    }
+
+    & .port-sub-title {
+      margin-top: 50px;
+    }
+
+    & hr {
+      border: 1px solid #4a4a4a;
+      opacity: 0.2;
+    }
+
+    & .image {
+      margin: 20px auto 60px auto;
+    }
+
+    & a {
+      color: #fff;
+
+      &:hover {
+        color: #05adff;
+      }
+    }
+  }
+}

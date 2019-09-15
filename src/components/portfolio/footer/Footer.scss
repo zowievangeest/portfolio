@@ -1,0 +1,49 @@
+.footer {
+  color: #fff;
+  background: #191919;
+  & .container {
+    margin: 80px auto;
+    & .subtitle {
+      margin-top: 10px;
+      font-weight: 200;
+    }
+    & .under-line {
+      margin-top: 40px;
+      & svg {
+        stroke: #05adff;
+        stroke-width: 4.3;
+      }
+    }
+  }
+  & .copyright {
+    padding: 20px;
+    background: #05adff;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.2);
+    & .copyright-txt {
+      font-weight: 600;
+    }
+    & .heart-icon {
+      margin-right: 10px;
+      color: red;
+      animation: 0.8s infinite beatHeart;
+    }
+  }
+}
+
+@keyframes beatHeart {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

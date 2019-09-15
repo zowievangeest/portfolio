@@ -1,0 +1,18 @@
+/*
+ * Educations Mutations Types
+ * The mutations types available for the educations module.
+ */
+
+export const CREATE_EDUCATION = 'CREATE_EDUCATION'
+export const DELETE_EDUCATION = 'DELETE_EDUCATION'
+export const UPDATE_EDUCATION = 'UPDATE_EDUCATION'
+export const FETCH_EDUCATIONS_SUCCESS = 'FETCH_EDUCATIONS_SUCCESS'
+export const FETCH_EDUCATION_ID = 'FETCH_EDUCATION_ID'
+
+export default {
+  CREATE_EDUCATION,
+  DELETE_EDUCATION,
+  UPDATE_EDUCATION,
+  FETCH_EDUCATIONS_SUCCESS,
+  FETCH_EDUCATION_ID
+}

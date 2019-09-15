@@ -1,0 +1,22 @@
+.page-title {
+  & .sub-under-line {
+    margin-top: 10px;
+    text-align: center;
+    & svg {
+      stroke: #fff;
+      stroke-width: 4.3;
+    }
+  }
+  & .new-title {
+    margin: auto;
+    font-size: 28px;
+    font-weight: 700;
+    color: #05adff;
+  }
+  & span {
+    margin: auto;
+    font-size: 82px;
+    font-weight: 700;
+    color: #0e0e0e;
+  }
+}

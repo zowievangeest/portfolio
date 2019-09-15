@@ -1,0 +1,78 @@
+{
+  "items": [
+    {
+      "name": "Home",
+      "to": "portfolio/home"
+    },
+    {
+      "name": "Over Mij",
+      "to": "portfolio/about"
+    },
+    {
+      "name": "Ervaringen",
+      "to": "portfolio/experiences"
+    },
+    {
+      "name": "Educatie",
+      "to": "portfolio/educations"
+    },
+    {
+      "name": "Portfolio",
+      "to": "portfolio/portfolio"
+    },
+    {
+      "name": "Blog",
+      "to": "portfolio/blog-posts"
+    }
+  ],
+  "socials": [
+    {
+      "icon": "github-circle",
+      "link": "https://github.com/zowievangeest"
+    },
+    {
+      "icon": "linkedin-box",
+      "link": "https://linkedin.com/in/zowie"
+    },
+    {
+      "icon": "stack-overflow",
+      "link": "https://stackoverflow.com/users/3227342/"
+    },
+    {
+      "icon": "telegram",
+      "link": "https://telegram.me/zowie93"
+    }
+  ],
+  "dashboardItems": [
+    {
+      "objectName": "posts",
+      "title": "Posts",
+      "routeNew": "posts/create",
+      "routeOverview": "posts/all"
+    },
+    {
+      "objectName": "projects",
+      "title": "Projecten",
+      "routeNew": "projects/create",
+      "routeOverview": "projects/all"
+    },
+    {
+      "objectName": "experiences",
+      "title": "Ervaringen",
+      "routeNew": "experiences/create",
+      "routeOverview": "experiences/all"
+    },
+    {
+      "objectName": "educations",
+      "title": "Opleidingen",
+      "routeNew": "educations/create",
+      "routeOverview": "educations/all"
+    },
+    {
+      "objectName": "certificates",
+      "title": "Certificaten",
+      "routeNew": "certificates/create",
+      "routeOverview": "certificates/all"
+    }
+  ]
+}

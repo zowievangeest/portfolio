@@ -1,0 +1,159 @@
+header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+  padding: 30px;
+  & .logo {
+    float: left;
+    width: 85px;
+    &img {
+      width: 85px;
+    }
+  }
+  & .nav-icon {
+    position: relative;
+    float: right;
+    width: 25px;
+    height: 18px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    transform: rotate(0deg);
+    & span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      opacity: 1;
+      transition: 0.25s ease-in-out;
+      transform: rotate(0deg);
+    }
+    & span:nth-child(1) {
+      top: 0;
+      right: 0 !important;
+      width: 90%;
+      transform-origin: left center;
+    }
+    & span:nth-child(2) {
+      top: 6px;
+      right: 0 !important;
+      width: 60%;
+      transform-origin: left center;
+    }
+    & span:nth-child(3) {
+      top: 12px;
+      right: 0 !important;
+      width: 30%;
+      transform-origin: left center;
+    }
+  }
+  & .nav-icon:hover span:nth-child(1),
+  .nav-icon:hover span:nth-child(2),
+  .nav-icon:hover span:nth-child(3) {
+    width: 100%;
+  }
+}
+
+.full-menu.visible {
+  visibility: visible;
+  background-size: 100%;
+  opacity: 1;
+  transition: opacity 0.4s, visibility 0s;
+}
+
+.full-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  visibility: hidden;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  & .fullmenu-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 6em 5%;
+    & .page-menu {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      & li {
+        line-height: 50px;
+        list-style: none;
+        & a {
+          position: relative;
+          padding: 0;
+          margin: 0;
+          font-size: 26px;
+          font-weight: 500;
+          color: #fff !important;
+          text-decoration: none !important;
+          vertical-align: baseline;
+          background: transparent;
+          & span {
+            position: absolute;
+            top: 19px;
+            left: -5px;
+            z-index: -1;
+            width: calc(100% + 10px);
+            height: 4px;
+            background: #05adff;
+            transition: transform 0.2s ease-out;
+            transform: scaleX(0);
+            transform-origin: right;
+          }
+          &:hover span {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+        }
+        & a.router-link-active span {
+          transform: scaleX(1);
+        }
+      }
+      & .last-nav-item {
+        margin-top: 40px;
+        & a {
+          padding: 0.5rem;
+          &:hover {
+            color: #fff;
+          }
+        }
+        & a:hover span {
+          transition: all ease 0.3s;
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  & .modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 45px;
+    height: 45px;
+    padding: 35px;
+    margin-top: 15px;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.3) url(../../../assets/images/icons/icon-close.svg) no-repeat center center;
+    border-radius: 50%;
+    transition: transform 0.3s 0s, visibility 0s 0.3s, opacity 0.3s 0s;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    background: #0a0a0a;
+  }
+}
